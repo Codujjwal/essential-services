@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Essential Services</h1>
+        <button id="toggleNav">Toggle Menu</button>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section>
+        <h2>Our Services</h2>
+        <ul>
+            <li>Healthcare</li>
+            <li>Emergency Services</li>
+            <li>Utilities</li>
+            <li>Transportation</li>
+            <li>Government Services</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="confirmationMessage"></div>
+    </section>
+    
+
+
+    <script>
+        const toggleButton = document.getElementById('toggleNav');
+        const navMenu = document.getElementById('mainNav');
+
+        toggleButton.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            confirmationMessage.innerHTML = `Thank you, ${name}! We have received your contact information (email: ${email}).`;
+        });
+    </script>
+
+<footer>
+    <p>&copy; 2023 Essential Services</p>
+</footer>
+
+<script src="script.js"></script>    
+</body>
+</html>
